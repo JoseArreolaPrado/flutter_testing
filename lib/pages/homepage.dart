@@ -1,6 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:tests_flutter/model/user.dart';
 import 'package:tests_flutter/pages/page1.dart';
+import 'package:tests_flutter/services/user_service.dart';
 
 import '../widgets/drawer.dart';
 
@@ -44,9 +47,27 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(
               height: 10,
             ),
-            FloatingActionButton(onPressed: () {
-              print('user created');
-            })
+            FloatingActionButton(
+              onPressed: () {
+                print('user created');
+              },
+            ),
+            MaterialButton(
+              color: Colors.blue,
+              onPressed: () {
+                final userService =
+                    Provider.of<UserService>(context, listen: false);
+                final newUser = User(
+                  name: 'John Doe',
+                  age: 30,
+                );
+                userService.user = newUser;
+              },
+              child: const Text(
+                'Create user',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
           ],
         ),
       ),
