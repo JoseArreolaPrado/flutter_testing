@@ -41,6 +41,12 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+            const SizedBox(
+              height: 10,
+            ),
+            FloatingActionButton(onPressed: () {
+              print('user created');
+            })
           ],
         ),
       ),
