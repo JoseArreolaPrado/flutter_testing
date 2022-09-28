@@ -10,4 +10,9 @@ class UserService with ChangeNotifier {
     _user = user;
     notifyListeners();
   }
+
+  void deleteUser() {
+    _user = null;
+    notifyListeners();
+  }
 }

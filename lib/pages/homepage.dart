@@ -68,6 +68,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: TextStyle(color: Colors.white),
               ),
             ),
+            MaterialButton(
+              color: Colors.blue,
+              onPressed: () {
+                final userService =
+                    Provider.of<UserService>(context, listen: false);
+                userService.deleteUser();
+              },
+              child: const Text(
+                'Delete user',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
           ],
         ),
       ),
