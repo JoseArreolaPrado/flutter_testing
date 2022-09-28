@@ -27,6 +27,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final userService = Provider.of<UserService>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -47,16 +48,9 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(
               height: 10,
             ),
-            // FloatingActionButton(
-            //   onPressed: () {
-            //     print('user created');
-            //   },
-            // ),
             MaterialButton(
               color: Colors.blue,
               onPressed: () {
-                final userService =
-                    Provider.of<UserService>(context, listen: false);
                 final newUser = User(
                   name: 'John Doe',
                   age: 30,
@@ -71,8 +65,6 @@ class _MyHomePageState extends State<MyHomePage> {
             MaterialButton(
               color: Colors.blue,
               onPressed: () {
-                final userService =
-                    Provider.of<UserService>(context, listen: false);
                 userService.deleteUser();
               },
               child: const Text(
